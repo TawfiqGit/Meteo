@@ -25,14 +25,12 @@ class DatabaseHelper (context : Context) :
         db?.execSQL(CITY_TABLE_CREATE)
     }
 
-    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {
-        TODO("Not yet implemented")
-    }
+    override fun onUpgrade(db: SQLiteDatabase?, oldVersion: Int, newVersion: Int) {}
 
     fun createCity(city : City): Boolean{
         val value = ContentValues()
-        value.put(CITY_COLUM_ID,city.name)
-        Log.i("city_create","value $value")
+        value.put(CITY_COLUM_NAME, city.name)
+        Log.i("city_create","value ${value.get(CITY_COLUM_NAME)}")
 
         val id = writableDatabase.insert(CITY_TABLE_NAME,null,value)
         city.id = id
