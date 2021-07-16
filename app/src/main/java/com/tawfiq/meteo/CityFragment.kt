@@ -19,10 +19,15 @@ import com.tawfiq.meteo.utils.toast
  */
 class CityFragment : Fragment(), ListCityAdapter.CityItemListenner {
 
+    interface CityFragmentListenner{
+        fun onCityListenner (city : City)
+    }
+
     private lateinit var cityList: MutableList<City>
     private lateinit var database : DatabaseHelper
     private lateinit var recyclerView: RecyclerView
     private lateinit var listCityAdapter: ListCityAdapter
+    lateinit var listenner: CityFragmentListenner
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -64,7 +69,7 @@ class CityFragment : Fragment(), ListCityAdapter.CityItemListenner {
     }
 
     override fun onCitySelected(city: City) {
-        Toast.makeText(context,"City Selected is ${city.name}",Toast.LENGTH_SHORT).show()
+        listenner.onCityListenner(city)
     }
 
     override fun onCityDeleted(city: City) {
