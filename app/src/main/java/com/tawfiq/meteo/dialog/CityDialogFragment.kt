@@ -7,6 +7,7 @@ import android.os.Bundle
 import android.text.InputType
 import android.widget.EditText
 import androidx.fragment.app.DialogFragment
+import com.tawfiq.meteo.R
 
 class CityDialogFragment : DialogFragment(){
 
@@ -29,14 +30,13 @@ class CityDialogFragment : DialogFragment(){
         with(builder){
             setTitle("Ajouter une ville")
             setView(input)
-            setPositiveButton("Ajouter",DialogInterface.OnClickListener{
-                _, _ -> listener?.onDialogPositive(input.text.toString())
-            })
+            setPositiveButton(getString(R.string.dialog_ajouter)) { _, _ ->
+                listener?.onDialogPositive(input.text.toString())}
 
-            setNegativeButton("Supprimer",DialogInterface.OnClickListener{ dialog, _ ->
+            setNegativeButton(getString(R.string.dialog_annuler)) { dialog, _ ->
                 dialog.cancel()
                 listener?.onDialogNegatif()
-            })
+            }
         }
         return builder.create()
     }

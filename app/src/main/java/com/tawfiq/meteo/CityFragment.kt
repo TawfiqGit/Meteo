@@ -1,21 +1,28 @@
 package com.tawfiq.meteo
 
 import android.os.Bundle
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.tawfiq.meteo.database.App
 import com.tawfiq.meteo.database.DatabaseHelper
 import com.tawfiq.meteo.dialog.CityDialogFragment
+import com.tawfiq.meteo.dialog.DeleteCityDialogFragment
 import com.tawfiq.meteo.model.City
+import com.tawfiq.meteo.utils.toast
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
  */
-class CityFragment : Fragment() {
+class CityFragment : Fragment(), ListCityAdapter.CityItemListenner {
 
     private lateinit var cityList: MutableList<City>
     private lateinit var database : DatabaseHelper
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var listCityAdapter: ListCityAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,8 +32,19 @@ class CityFragment : Fragment() {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_city, container, false)
+        val v = inflater.inflate(R.layout.fragment_city, container, false)
+        with(v){
+            recyclerView = findViewById(R.id.recycleViewCity)
+            recyclerView.layoutManager = LinearLayoutManager(context)
+        }
+        return v
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        cityList = database.getAllCity()
+        listCityAdapter = ListCityAdapter(cityList,this)
+        recyclerView.adapter = listCityAdapter
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -45,25 +63,56 @@ class CityFragment : Fragment() {
         }
     }
 
+    override fun onCitySelected(city: City) {
+        Toast.makeText(context,"City Selected is ${city.name}",Toast.LENGTH_SHORT).show()
+    }
+
+    override fun onCityDeleted(city: City) {
+        showDialogDelete(city)
+    }
+
     private fun showDialog(){
         val cityDialogFragment = CityDialogFragment()
 
         cityDialogFragment.listener = object : CityDialogFragment.CityDialogFragmentListener{
             override fun onDialogPositive(cityName: String) {
-                saveCity(City(cityName))
+                val c = City(cityName)
+                Log.i("city_create","dialog c = ${c.name}")
+                saveCity(c)
             }
-
             override fun onDialogNegatif() {}
         }
-
         cityDialogFragment.show(parentFragmentManager,"CityFragmentDialog")
     }
 
     fun saveCity(city :City){
         if (database.createCity(city)){
             cityList.add(city)
+            listCityAdapter.notifyDataSetChanged()
         }else{
-            Toast.makeText(context,"No cree table city", Toast.LENGTH_SHORT).show()
+            context?.toast("No create table city")
+        }
+    }
+
+    private fun showDialogDelete(city: City){
+        val deleteDialog = DeleteCityDialogFragment.newInstance(city.name)
+
+        deleteDialog.listener = object : DeleteCityDialogFragment.DeleteCityDialogFragmentListener {
+            override fun onDialogPositive() {
+                deleteCity(city)
+            }
+
+            override fun onDialogNegatif() {}
+        }
+        deleteDialog.show(parentFragmentManager,"CityFragmentDialog")
+    }
+
+    fun deleteCity(city :City){
+        if (database.deleteCity(city)){
+            cityList.remove(city)
+            listCityAdapter.notifyDataSetChanged()
+        }else{
+            context?.toast("NO DELETE ")
         }
     }
 }

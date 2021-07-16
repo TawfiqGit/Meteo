@@ -4,4 +4,7 @@
     <string name="previous">Previous</string>
     <string name="menu_ajouter">Ajouter</string>
     <string name="menu_desc">DESC</string>
+    <string name="dialog_ajouter">Ajouter</string>
+    <string name="dialog_annuler">Annuler</string>
+    <string name="dialog_supprimer">Supprimer</string>
 </resources>
