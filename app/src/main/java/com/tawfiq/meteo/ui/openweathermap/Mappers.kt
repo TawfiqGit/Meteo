@@ -9,6 +9,6 @@ fun mapOpenWeatherDataToWeather(weatherWrapper : WeatherWrapper) : Weather{
         weatherWrapper.main.temperature,
         weatherWrapper.main.humidity,
         weatherWrapper.main.pressure,
-        weatherFirst.icon
+        "https://openweathermap.org/img/w/${weatherFirst.icon}.png"
     )
 }

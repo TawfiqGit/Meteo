@@ -2,13 +2,14 @@ package com.tawfiq.meteo.ui.weather
 
 import android.os.Bundle
 import android.util.Log
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
+import androidx.fragment.app.Fragment
+import com.squareup.picasso.Picasso
 import com.tawfiq.meteo.R
 import com.tawfiq.meteo.database.App
 import com.tawfiq.meteo.domain.Weather
@@ -73,6 +74,12 @@ class WeatherFragment : Fragment() {
     }
 
     private fun updateUIWeather(weather: Weather, cityName : String){
+        //Picasso permet de charger des images
+        Picasso.get()
+            .load(weather.iconUrl)
+            .placeholder(R.drawable.ic_baseline_broken_image)
+            .into(imageViewIcon)
+
         textViewCity.text = cityName
         textViewDescription.text = weather.description
 
