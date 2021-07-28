@@ -1,11 +1,12 @@
-package com.tawfiq.meteo
+package com.tawfiq.meteo.ui
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.tawfiq.meteo.model.City
-import com.tawfiq.meteo.weather.WeatherActivity
-import com.tawfiq.meteo.weather.WeatherFragment
+import com.tawfiq.meteo.R
+import com.tawfiq.meteo.domain.City
+import com.tawfiq.meteo.ui.weather.WeatherActivity
+import com.tawfiq.meteo.ui.weather.WeatherFragment
 
 class CityActivity : AppCompatActivity() , CityFragment.CityFragmentListenner {
 

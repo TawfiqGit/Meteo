@@ -8,7 +8,7 @@
 
     <fragment
         android:id="@+id/fragment_city"
-        android:name="com.tawfiq.meteo.CityFragment"
+        android:name="com.tawfiq.meteo.ui.CityFragment"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:defaultNavHost="true"

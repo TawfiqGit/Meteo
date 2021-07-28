@@ -1,4 +1,4 @@
-package com.tawfiq.meteo.utils
+package com.tawfiq.meteo.ui.utils
 
 import android.content.Context
 import android.widget.Toast

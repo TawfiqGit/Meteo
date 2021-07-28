@@ -1,12 +1,8 @@
-package com.tawfiq.meteo.dialog
+package com.tawfiq.meteo.ui.weather.dialog
 
 import android.app.AlertDialog
 import android.app.Dialog
-import android.content.DialogInterface
 import android.os.Bundle
-import android.text.InputType
-import android.widget.EditText
-import android.widget.TextView
 import androidx.fragment.app.DialogFragment
 import com.tawfiq.meteo.R
 

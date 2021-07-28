@@ -1,4 +1,4 @@
-package com.tawfiq.meteo.weather
+package com.tawfiq.meteo.ui.weather
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

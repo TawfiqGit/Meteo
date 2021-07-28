@@ -1,4 +1,4 @@
-package com.tawfiq.meteo
+package com.tawfiq.meteo.ui
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
-import com.tawfiq.meteo.model.City
+import com.tawfiq.meteo.R
+import com.tawfiq.meteo.domain.City
 
 class ListCityAdapter(private val listCity : List<City>, private val cityListenner : CityItemListenner)
     : RecyclerView.Adapter<ListCityAdapter.ViewHolder>(), View.OnClickListener {

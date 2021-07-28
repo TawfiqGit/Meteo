@@ -5,7 +5,7 @@ import android.content.Context
 import android.database.sqlite.SQLiteDatabase
 import android.database.sqlite.SQLiteOpenHelper
 import android.util.Log
-import com.tawfiq.meteo.model.City
+import com.tawfiq.meteo.domain.City
 
 private const val DATABASE_NAME= "meteo.db"
 private const val DATABASE_VERSION = 1

@@ -1,4 +1,4 @@
-package com.tawfiq.meteo.model
+package com.tawfiq.meteo.domain
 
 data class City(var id: Long, val name : String){
 

@@ -1,18 +1,18 @@
-package com.tawfiq.meteo
+package com.tawfiq.meteo.ui
 
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.tawfiq.meteo.R
 import com.tawfiq.meteo.database.App
 import com.tawfiq.meteo.database.DatabaseHelper
-import com.tawfiq.meteo.dialog.CityDialogFragment
-import com.tawfiq.meteo.dialog.DeleteCityDialogFragment
-import com.tawfiq.meteo.model.City
-import com.tawfiq.meteo.utils.toast
+import com.tawfiq.meteo.ui.weather.dialog.CityDialogFragment
+import com.tawfiq.meteo.ui.weather.dialog.DeleteCityDialogFragment
+import com.tawfiq.meteo.domain.City
+import com.tawfiq.meteo.ui.utils.toast
 
 /**
  * A simple [Fragment] subclass as the default destination in the navigation.
