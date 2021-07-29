@@ -5,7 +5,7 @@
         android:id="@+id/action_ajouter"
         android:orderInCategory="100"
         android:title="@string/menu_ajouter"
-        android:icon="@android:drawable/ic_menu_add"
+        android:icon="@android:drawable/ic_input_add"
         app:showAsAction="always" />
 
 </menu>

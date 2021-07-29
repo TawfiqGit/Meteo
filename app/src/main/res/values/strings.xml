@@ -11,12 +11,18 @@
     <string name="weather_temperature">%1$d °C</string>
     <string name="weather_humidity">%1$d %%</string>
     <string name="weather_pressure">%1$d hPa</string>
-    <string name="textHint_1000_hpa">1000 hPa</string>
     <string name="text_pressure">Pressure</string>
     <string name="text_temperature">Temperature</string>
-    <string name="textHint_25">25 °C</string>
     <string name="text_humidity">Humidity</string>
-    <string name="textHint_38">38 %</string>
-    <string name="text_chennai">Chennai</string>
-    <string name="text_pluie">Pluie</string>
+    <string name="text_not_found">Not found</string>
+    <string name="dialog_ajouter_une_ville">Ajouter une ville</string>
+    <string name="hint_paris_chennai">Paris, Chennai....</string>
+
+    <string-array name="list_city">
+        <item>Paris</item>
+        <item>Nante</item>
+        <item>Toulouse</item>
+        <item>Marseille</item>
+        <item>Bretagne</item>
+    </string-array>
 </resources>

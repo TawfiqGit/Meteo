@@ -1,149 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/weather_background"
+    android:id="@+id/swipeRefresh"
     tools:context=".ui.weather.WeatherFragment">
 
-    <TextView
-        android:id="@+id/textView_city"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/fab_margin"
-        android:textColor="@color/teal_700"
-        android:textSize="34sp"
-        android:textStyle="bold"
-        android:hint="@string/text_chennai"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="120dp"
-        android:layout_margin="@dimen/fab_margin"
-        android:layout_marginTop="32dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView_city">
-
-        <ImageView
-            android:id="@+id/imageViewIcon"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="90"
-            android:src="@drawable/ic_launcher_foreground"
-            android:contentDescription="@string/app_name" />
+        android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textview_description"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="40"
-            android:gravity="fill"
-            android:textAlignment="center"
-            android:textColor="@color/teal_700"
-            android:textSize="30sp"
-            android:textStyle="normal"
-            android:hint="@string/text_pluie"/>
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="8dp"
-        android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.0">
-
-        <LinearLayout
-            android:id="@+id/linearLayoutPressure"
-            android:layout_width="match_parent"
+            android:id="@+id/textView_city"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="@dimen/fab_margin"
-            android:orientation="horizontal">
+            android:textColor="@color/white"
+            android:textSize="34sp"
+            android:textStyle="bold"
+            android:hint="@string/text_not_found"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:layout_margin="@dimen/fab_margin"
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView_city">
+
+            <ImageView
+                android:id="@+id/imageViewIcon"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:text="@string/text_pressure"
-                android:textAlignment="center"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp" />
+                android:layout_weight="90"
+                android:src="@drawable/ic_launcher_foreground"
+                android:contentDescription="@string/app_name" />
 
             <TextView
-                android:id="@+id/textViewPressure"
+                android:id="@+id/textview_description"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:hint="@string/textHint_1000_hpa"
+                android:layout_weight="40"
+                android:gravity="fill"
                 android:textAlignment="center"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp" />
+                android:textColor="@color/white"
+                android:textSize="30sp"
+                android:textStyle="normal"
+                android:hint="@string/text_not_found"/>
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/linearLayoutTemp"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:orientation="horizontal">
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="8dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+            app:layout_constraintVertical_bias="0.0">
 
-            <TextView
+            <LinearLayout
+                android:id="@+id/linearLayoutPressure"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:text="@string/text_temperature"
-                android:textAlignment="center"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp" />
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textViewTemperature"
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:text="@string/text_pressure"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/textViewPressure"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:hint="@string/text_not_found"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutTemp"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:hint="@string/textHint_25"
-                android:textAlignment="center"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp" />
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:text="@string/text_temperature"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/textViewTemperature"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:hint="@string/text_not_found"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/linearLayoutHumidity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/fab_margin"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:text="@string/text_humidity"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/textViewHumidity"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_weight="50"
+                    android:hint="@string/text_not_found"
+                    android:textAlignment="center"
+                    android:textColor="@color/white"
+                    android:textSize="25sp" />
+            </LinearLayout>
         </LinearLayout>
-
-
-        <LinearLayout
-            android:id="@+id/linearLayoutHumidity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/fab_margin"
-            android:orientation="horizontal">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:text="@string/text_humidity"
-                android:textAlignment="center"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/textViewHumidity"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="50"
-                android:hint="@string/textHint_38"
-                android:textAlignment="center"
-                android:textColor="@color/teal_700"
-                android:textSize="25sp" />
-        </LinearLayout>
-    </LinearLayout>
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
